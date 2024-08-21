@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/jsconfig",
   "name": "markdown-wrap",
   "displayName": "Markdown Wrap",
   "description": "",
@@ -24,6 +25,93 @@
       {
         "command": "markdown-wrap.togglehanding1",
         "key": "ctrl+shift+q",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.togglehanding2",
+        "key": "ctrl+2",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.togglehanding3",
+        "key": "ctrl+3",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.togglehanding4",
+        "key": "ctrl+4",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.togglehanding5",
+        "key": "ctrl+5",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.togglehanding6",
+        "key": "ctrl+6",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleBold",
+        "key": "ctrl+b",
+        "mac": "cmd+b",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /(?:markdown)|(?:quarto)/"
+      },
+      {
+        "command": "markdown-wrap.toggleItalic",
+        "key": "ctrl+i",
+        "mac": "cmd+i",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleStrikeThrough",
+        "key": "ctrl+shift+5",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleCodeSpan",
+        "key": "ctrl+`",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleMath",
+        "key": "ctrl+m",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleLink",
+        "key": "ctrl+l",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleNumberList",
+        "key": "ctrl+shift+[",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleBulletList",
+        "key": "ctrl+shift+]",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleCheckboxList",
+        "key": "ctrl+shift+o",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleQuote",
+        "key": "ctrl+shift+q",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.insertTable",
+        "key": "ctrl+t",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.insertCodeBlock",
+        "key": "ctrl+shift+k",
         "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
       }
     ]

@@ -2,6 +2,10 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
+import * as cmd from "./command";
+
+import {MdCompletionItemProvider} from "./completion";
+
 
 
 
@@ -35,21 +39,34 @@ export function activate(context: vscode.ExtensionContext) {
 	globalThis.extensionContext = context;
 	
 
-	context.subscriptions.push(vscode.commands.registerCommand("markdown-wrap.togglehanding1", () => {console.log("test");}));
 
-	// context.subscriptions.push(
-	// 	vscode.languages.registerCompletionItemProvider(Document_Selector_Markdown, new MdCompletionItemProvider())
-	// );
+	context.subscriptions.push(
+		vscode.languages.registerCompletionItemProvider(Document_Selector_Markdown, new MdCompletionItemProvider())
+	);
 	
 
-	// context.subscriptions.push(
-		// vscode.commands.registerCommand('markdown-wrap.toggleHanding1', cmd.toggleHanding1),
-		// vscode.commands.registerCommand('markdown-wrap.togglehanding2', cmd.toggleHanding2),
-		// vscode.commands.registerCommand('markdown-wrap.togglehanding3', cmd.toggleHanding3),
-		// vscode.commands.registerCommand('markdown-wrap.togglehanding4', cmd.toggleHanding4),
-		// vscode.commands.registerCommand('markdown-wrap.togglehanding5', cmd.toggleHanding5),
-		// vscode.commands.registerCommand('markdown-wrap.togglehanding6', cmd.toggleHanding6),
-	// );
+	context.subscriptions.push(
+		vscode.commands.registerCommand('markdown-wrap.toggleHanding1', cmd.toggleHanding1),
+		vscode.commands.registerCommand('markdown-wrap.togglehanding2', cmd.toggleHanding2),
+		vscode.commands.registerCommand('markdown-wrap.togglehanding3', cmd.toggleHanding3),
+		vscode.commands.registerCommand('markdown-wrap.togglehanding4', cmd.toggleHanding4),
+		vscode.commands.registerCommand('markdown-wrap.togglehanding5', cmd.toggleHanding5),
+		vscode.commands.registerCommand('markdown-wrap.togglehanding6', cmd.toggleHanding6),
+		vscode.commands.registerCommand('markdown-wrap.toggleBold', cmd.toggleBold),
+		vscode.commands.registerCommand('markdown-wrap.toggleItalic', cmd.toggleItalic),
+		vscode.commands.registerCommand('markdown-wrap.toggleCodeSpan', cmd.toggleCodeSpan),
+		vscode.commands.registerCommand('markdown-wrap.toggleStrikeThrough', cmd.toggleStrikeThrough),
+		vscode.commands.registerCommand('markdown-wrap.toggleMath', cmd.toggleMath),
+		vscode.commands.registerCommand('markdown-wrap.toggleLink', cmd.toggleLink),
+		vscode.commands.registerCommand('markdown-wrap.toggleNumberList', () => cmd.toggleList('1.')),
+		vscode.commands.registerCommand('markdown-wrap.toggleBulletList', () => cmd.toggleList('*')),
+		vscode.commands.registerCommand('markdown-wrap.toggleCheckboxList', () => cmd.toggleList('- [ ]')),
+		vscode.commands.registerCommand('markdown-wrap.toggleQuote', cmd.toggleQuote),
+		vscode.commands.registerCommand('markdown-wrap.insertTable', cmd.insertTable),
+		vscode.commands.registerCommand('markdown-wrap.insertCodeBlock', cmd.insertCodeBlock),
+
+	);
+
 }
 
 // This method is called when your extension is deactivated

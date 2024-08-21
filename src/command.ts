@@ -1,4 +1,5 @@
-import { Position, Range, Selection, SnippetString, window, workspace, WorkspaceEdit } from 'vscode';
+
+import {env, Position, Range, Selection, SnippetString, window, workspace, WorkspaceEdit } from 'vscode';
 
 
 
@@ -44,7 +45,7 @@ export function insertTable(){
 
 
 // 插入代码块
-export function toggleCodeBlock() {
+export function insertCodeBlock() {
     const editor = window.activeTextEditor!;
     return editor.insertSnippet(new SnippetString('```$0\n$TM_SELECTED_TEXT\n```'));
 }
@@ -188,22 +189,74 @@ export function toggleQuote () {
     });
 }
 
+function createLinkRegex(): RegExp {
+    // unicode letters range(must not be a raw string)
+    const ul = '\\u00a1-\\uffff';
+    // IP patterns
+    const ipv4_re = '(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}';
+    const ipv6_re = '\\[[0-9a-f:\\.]+\\]';  // simple regex (in django it is validated additionally)
 
-// export function toggleLink() {
-//     const editor = window.activeTextEditor!;
-//     const selection = editor.selection;    
 
-//     const linkRegex = /\[.*?\]\(http:\S*?\)/;
-//     const wordRange= editor.document.getWordRangeAtPosition(selection.active, linkRegex);
-//     if (wordRange) {
-//         const text = editor.document.getText(wordRange);
-        
-//         return editor.edit( e => {
-//             e.replace(wordRange, )
-//         }
+    // Host patterns
+    const hostname_re = '[a-z' + ul + '0-9](?:[a-z' + ul + '0-9-]{0,61}[a-z' + ul + '0-9])?';
+    // Max length for domain name labels is 63 characters per RFC 1034 sec. 3.1
+    const domain_re = '(?:\\.(?!-)[a-z' + ul + '0-9-]{1,63}(?<!-))*';
 
-//         )
-//     } else {
+    const tld_re = ''
+        + '\\.'                               // dot
+        + '(?!-)'                             // can't start with a dash
+        + '(?:[a-z' + ul + '-]{2,63}'         // domain label
+        + '|xn--[a-z0-9]{1,59})'              // or punycode label
+        + '(?<!-)'                            // can't end with a dash
+        + '\\.?'                              // may have a trailing dot
+        ;
 
-//     }
-// }
+    const host_re = '(' + hostname_re + domain_re + tld_re + '|localhost)';
+    const pattern = ''
+        + '^(?:[a-z0-9\\.\\-\\+]*)://'  // scheme is not validated (in django it is validated additionally)
+        + '(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?'  // user: pass authentication
+        + '(?:' + ipv4_re + '|' + ipv6_re + '|' + host_re + ')'
+        + '(?::\\d{2,5})?'  // port
+        + '(?:[/?#][^\\s]*)?'  // resource path
+        + '$' // end of string
+        ;
+
+    return new RegExp(pattern, 'i');
+}
+
+const singleLinkRegex: RegExp = createLinkRegex();
+
+export async function toggleLink() {
+    const editor = window.activeTextEditor!;
+    let selection = editor.selection;    
+
+    const linkRegex = /\[.*?\]\(.*?\)/;
+    if (selection.isSingleLine){
+        const wordRange= editor.document.getWordRangeAtPosition(selection.active, linkRegex);
+        if (wordRange) {           
+            
+            const linkText = editor.document.getText(wordRange);
+            const content = (/\[(.*?)\]/.exec(linkText) as RegExpExecArray)[1];
+            return editor.edit( e => 
+                e.replace(wordRange, content)
+                );
+            } else {
+                if (selection.isEmpty) {
+                    const range = editor.document.getWordRangeAtPosition(selection.active);
+                    console.log("1");
+                    if (range){
+                        editor.selection = new Selection(range.start, range.end);
+                    }
+                }
+                let text = (await env.clipboard.readText()).trim();
+                text = singleLinkRegex.test(text)? text: '';
+                
+                return editor.insertSnippet(new SnippetString("[$TM_SELECTED_TEXT](${1:" + text + "})"));
+            }
+            
+        }
+        else {
+            return window.showErrorMessage("Only selection single line!");
+        }
+  
+}
