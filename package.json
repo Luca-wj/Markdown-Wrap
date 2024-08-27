@@ -1,0 +1,262 @@
+{
+  "name": "markdown-wrap",
+  "displayName": "Markdown Wrap",
+  "description": "Refer to Typora for some keyboard shortcuts.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdown-wrap.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "markdown-wrap.toggleHanding1",
+        "title": "Toggle Heading1",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleHanding2",
+        "title": "Toggle Heading2",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleHanding3",
+        "title": "Toggle Heading3",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleHanding4",
+        "title": "Toggle Heading4",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleHanding5",
+        "title": "Toggle Heading5",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleHanding6",
+        "title": "Toggle Heading6",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleBold",
+        "title": "Toggle Bold",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleItalic",
+        "title": "Toggle Italic",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleCodeSpan",
+        "title": "Toggle Code Span",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleStrikeThrough",
+        "title": "Toggle Strike Through",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleMath",
+        "title": "Toggle Math",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleLink",
+        "title": "Toggle Link",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleNumberList",
+        "title": "Toggle Number List",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleBulletList",
+        "title": "Toggle Bullet List",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleCheckboxList",
+        "title": "Toggle Checkbox List",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.toggleQuote",
+        "title": "Toggle Quote",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.insertTable",
+        "title": "Insert Table",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.insertCodeBlock",
+        "title": "Insert Code Block",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      },
+      {
+        "command": "markdown-wrap.insertMathBlock",
+        "title": "Insert Math Block",
+        "enablement": "editorLangId =~ /markdown/",
+        "category": "Markdown Wrap"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "markdown-wrap.toggleHanding1",
+        "key": "ctrl+1",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleHanding2",
+        "key": "ctrl+2",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleHanding3",
+        "key": "ctrl+3",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleHanding4",
+        "key": "ctrl+4",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleHanding5",
+        "key": "ctrl+5",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleHanding6",
+        "key": "ctrl+6",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleBold",
+        "key": "ctrl+b",
+        "mac": "cmd+b",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /(?:markdown)|(?:quarto)/"
+      },
+      {
+        "command": "markdown-wrap.toggleItalic",
+        "key": "ctrl+i",
+        "mac": "cmd+i",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleStrikeThrough",
+        "key": "ctrl+shift+5",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleCodeSpan",
+        "key": "ctrl+`",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleMath",
+        "key": "ctrl+m",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleLink",
+        "key": "ctrl+l",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleNumberList",
+        "key": "ctrl+shift+[",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleBulletList",
+        "key": "ctrl+shift+]",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleCheckboxList",
+        "key": "ctrl+shift+o",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.toggleQuote",
+        "key": "ctrl+shift+q",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.insertTable",
+        "key": "ctrl+t",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.insertCodeBlock",
+        "key": "ctrl+shift+k",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      },
+      {
+        "command": "markdown-wrap.insertMathBlock",
+        "key": "ctrl+shift+m",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.92.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.11.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0"
+  }
+}
